@@ -1,0 +1,30 @@
+server:
+  port: 7001
+spring:
+#  dubbo:
+#    application: provider2
+#    base-package: com.test.provider2.service
+#    registry:
+#      address: zookeeper://localhost
+#      port: 2181
+#    protocol:
+#      port: 20881
+#      check: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/provider?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=true
+    username: root
+    password: root
+mybatis:
+  type-aliases-package: com.test.api.entity
+  mapper-locations: classpath:mapping/*.xml
+dubbo:
+  application:
+    name: provider2
+  registry:
+    address: zookeeper://localhost:2181
+  protocol:
+    name: dubbo
+    port: 20881
+  scan:
+    base-packages: com.test.provider2.service

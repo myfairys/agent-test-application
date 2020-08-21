@@ -1,0 +1,29 @@
+server:
+  port: 7004
+spring:
+#  dubbo:
+#    application: consumer
+#    base-package: com.test.consumer.controller
+#    registry:
+#      address: zookeeper://localhost
+#      port: 2181
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/provider?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  application:
+    name: sw
+  cloud:
+    sentinel:
+      transport:
+        port: 8762
+        dashboard: localhost:8080
+#dubbo:
+#  application:
+#    name: consumer
+#  registry:
+#    address: zookeeper://localhost:2181
+#  scan:
+#    base-packages: com.test.consumer.controller

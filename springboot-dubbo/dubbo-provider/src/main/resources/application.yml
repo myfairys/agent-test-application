@@ -1,0 +1,25 @@
+server:
+  port: 7000
+spring:
+#  dubbo:
+#    application: provider
+#    base-package: com.test.provider.service.impl
+#    registry:
+#      address: zookeeper://localhost
+#      port: 2181
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/provider?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+dubbo:
+  application:
+    name: provider
+  registry:
+    address: zookeeper://localhost:2181
+  protocol:
+    port: 20880
+    name: dubbo
+  scan:
+    base-packages: com.test.provider.service.impl
